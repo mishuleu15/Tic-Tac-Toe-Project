@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(267, 22%, 90%);
+  font-family: 'Nunito', sans-serif;
+}
+
+header {
+  text-align: center;
+  margin: 2rem auto 2rem 4rem;
+}
+
+header h1 {
+  padding: 1rem;
+}
+
+strong {
+  display: block;
+  font-size: 2rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.25rem;
+}
+
+.section-A {
+  display: flex;
+  width: 400px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.section-A form {
+  margin-left: 1rem;
+  background-color: hsl(272, 31%, 80%);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+h3,
+strong {
+  color: #5709a0;
+}
+
+.section-B {
+  text-align: center;
+  margin-left: 2.9rem;
+}
+
+.section-B input {
+  height: 8rem;
+  width: 8rem;
+  margin-left: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.section-B input:focus {
+  background-color: hsl(271, 27%, 76%);
+  outline: none;
+}
+
+button {
+  font: inherit;
+}
+
+.active {
+  background-color: hsl(271, 27%, 76%);
+}
+
+.section-C {
+  margin-left: 4rem;
+}
+
+.section-C button {
+  display: block;
+  font: inherit;
+  width: 10rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+#b1,
+#b2,
+#b3,
+#b4,
+#b5,
+#b6,
+#b7,
+#b8,
+#b9 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+hr {
+  width: 30rem;
+  height: 0.3rem;
+  background-color: black;
+  border: none;
+  position: relative;
+  top: 65px;
+  left: 370px;
+  display: none;
+}
