@@ -89,17 +89,6 @@ button {
   text-align: center;
 }
 
-hr {
-  width: 30rem;
-  height: 0.3rem;
-  background-color: black;
-  border: none;
-  position: relative;
-  top: 65px;
-  left: 370px;
-  display: none;
-}
-
 #message {
   text-align: center;
   font-size: 2rem;
