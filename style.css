@@ -23,14 +23,9 @@ strong {
   font-size: 2rem;
 }
 
-button {
-  margin-top: 1rem;
-  padding: 0.25rem;
-}
-
 .section-A {
   display: flex;
-  width: 400px;
+  width: 25rem;
   margin: 0 auto 2rem auto;
   text-align: center;
 }
@@ -42,20 +37,31 @@ button {
   border-radius: 5px;
 }
 
+.section-A input {
+  outline: none;
+  border: none;
+  padding: 0.25rem;
+}
+
 h3,
 strong {
   color: #5709a0;
 }
 
 .section-B {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 6.25rem;
   text-align: center;
-  margin-left: 2.9rem;
+  margin: auto;
+  position: relative;
+  right: 7.6rem;
 }
 
 .section-B input {
   height: 8rem;
   width: 8rem;
-  margin-left: 1rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -74,28 +80,11 @@ button {
   background-color: hsl(271, 27%, 76%);
 }
 
-.section-C {
-  margin-left: 4rem;
+.selected {
+  background-color: hsl(271, 49%, 37%);
 }
 
-.section-C button {
-  display: block;
-  font: inherit;
-  width: 10rem;
-  margin: 1rem auto;
-  padding: 1rem;
-  cursor: pointer;
-}
-
-#b1,
-#b2,
-#b3,
-#b4,
-#b5,
-#b6,
-#b7,
-#b8,
-#b9 {
+.inputChoice {
   font-size: 4rem;
   text-align: center;
 }
@@ -109,4 +98,10 @@ hr {
   top: 65px;
   left: 370px;
   display: none;
+}
+
+#message {
+  text-align: center;
+  font-size: 2rem;
+  margin: auto 0 2rem 5rem;
 }

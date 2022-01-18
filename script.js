@@ -2,241 +2,133 @@ const firstPlayerName = document.getElementById('player1');
 const secondPlayerName = document.getElementById('player2');
 const firstInput = document.getElementById('player-1');
 const secondInput = document.getElementById('player-2');
-const hr = document.querySelector('hr');
+const sectionB = document.querySelector('.section-B');
+const messageTurn = document.getElementById('message');
 
 let activePlayerOne = true;
 let activePlayerTwo = false;
+
+firstPlayerName.textContent = 'Max';
+secondPlayerName.textContent = 'Manu';
 
 function switchPlayer() {
   activePlayerOne = !activePlayerOne;
   activePlayerTwo = !activePlayerTwo;
 }
 
-function myfunc_3() {
-  //   if (sectionA.children[0].children[0].textContent === 'Player 1') {
-  //     document.getElementById('b1').value = 'X';
-  //   }
-  //   if (sectionA.children[1].children[0].textContent === 'Player 2') {
-  //     document.getElementById('b1').value = 'O';
-  //   }
-
+function activePlayer(id) {
   if (activePlayerOne) {
-    document.getElementById('b1').value = 'X';
+    document.getElementById(id).value = 'X';
+    messageTurn.textContent = `It's your turn ${secondInput.value}!`;
   }
 
   if (activePlayerTwo) {
-    document.getElementById('b1').value = 'O';
+    document.getElementById(id).value = 'O';
+    messageTurn.textContent = `It's your turn ${firstInput.value}!`;
+  }
+
+  if (Number(id) === Number(sectionB.children[id].id)) {
+    sectionB.children[id].classList.add('selected');
   }
   switchPlayer();
 }
 
-function myfunc_4() {
-  if (activePlayerOne) {
-    document.getElementById('b2').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b2').value = 'O';
-  }
-  switchPlayer();
+function playerInput_3() {
+  activePlayer('0');
 }
 
-function myfunc_5() {
-  if (activePlayerOne) {
-    document.getElementById('b3').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b3').value = 'O';
-  }
-  switchPlayer();
+function playerInput_4() {
+  activePlayer('1');
 }
 
-function myfunc_6() {
-  if (activePlayerOne) {
-    document.getElementById('b4').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b4').value = 'O';
-  }
-  switchPlayer();
+function playerInput_5() {
+  activePlayer('2');
 }
 
-function myfunc_7() {
-  if (activePlayerOne) {
-    document.getElementById('b5').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b5').value = 'O';
-  }
-  switchPlayer();
+function playerInput_6() {
+  activePlayer('3');
 }
 
-function myfunc_8() {
-  if (activePlayerOne) {
-    document.getElementById('b6').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b6').value = 'O';
-  }
-  switchPlayer();
+function playerInput_7() {
+  activePlayer('4');
 }
 
-function myfunc_9() {
-  if (activePlayerOne) {
-    document.getElementById('b7').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b7').value = 'O';
-  }
-  switchPlayer();
+function playerInput_8() {
+  activePlayer('5');
 }
 
-function myfunc_10() {
-  if (activePlayerOne) {
-    document.getElementById('b8').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b8').value = 'O';
-  }
-  switchPlayer();
+function playerInput_9() {
+  activePlayer('6');
 }
 
-function myfunc_11() {
-  if (activePlayerOne) {
-    document.getElementById('b9').value = 'X';
-  }
-
-  if (activePlayerTwo) {
-    document.getElementById('b9').value = 'O';
-  }
-  switchPlayer();
+function playerInput_10() {
+  activePlayer('7');
 }
 
-function myfunc() {
+function playerInput_11() {
+  activePlayer('8');
+}
+
+function playerChoice() {
   let b1, b2, b3, b4, b5, b6, b7, b8, b9;
-  b1 = document.getElementById('b1').value;
-  b2 = document.getElementById('b2').value;
-  b3 = document.getElementById('b3').value;
-  b4 = document.getElementById('b4').value;
-  b5 = document.getElementById('b5').value;
-  b6 = document.getElementById('b6').value;
-  b7 = document.getElementById('b7').value;
-  b8 = document.getElementById('b8').value;
-  b9 = document.getElementById('b9').value;
+  b1 = document.getElementById('0').value;
+  b2 = document.getElementById('1').value;
+  b3 = document.getElementById('2').value;
+  b4 = document.getElementById('3').value;
+  b5 = document.getElementById('4').value;
+  b6 = document.getElementById('5').value;
+  b7 = document.getElementById('6').value;
+  b8 = document.getElementById('7').value;
+  b9 = document.getElementById('8').value;
 
-  if (b1 === 'O' && b5 === 'O' && b9 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
+  winCombinations(b1, b2, b3);
+  winCombinations(b4, b5, b6);
+  winCombinations(b7, b8, b9);
+  winCombinations(b1, b4, b7);
+  winCombinations(b2, b5, b8);
+  winCombinations(b3, b6, b9);
+  winCombinations(b1, b5, b9);
+  winCombinations(b3, b5, b7);
 
-  if (b1 === 'X' && b5 === 'X' && b9 === 'X') {
+  if (
+    (b1 === 'O' || b1 === 'X') &&
+    (b2 === 'O' || b2 === 'X') &&
+    (b3 === 'O' || b3 === 'X') &&
+    (b4 === 'O' || b4 === 'X') &&
+    (b5 === 'O' || b5 === 'X') &&
+    (b6 === 'O' || b6 === 'X') &&
+    (b7 === 'O' || b7 === 'X') &&
+    (b8 === 'O' || b8 === 'X') &&
+    (b9 === 'O' || b9 === 'X')
+  ) {
     setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b1 === 'O' && b2 === 'O' && b3 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-    hr.style.display = 'block';
-  }
-
-  if (b1 === 'X' && b2 === 'X' && b3 === 'X') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-    hr.style.display = 'block';
-  }
-
-  if (b1 === 'O' && b4 === 'O' && b7 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b1 === 'X' && b4 === 'X' && b7 === 'X') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b7 === 'O' && b8 === 'O' && b9 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b7 === 'X' && b8 === 'X' && b9 === 'X') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b4 === 'O' && b5 === 'O' && b6 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b4 === 'X' && b5 === 'X' && b6 === 'X') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b2 === 'O' && b5 === 'O' && b8 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b2 === 'X' && b5 === 'X' && b8 === 'X') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b3 === 'O' && b6 === 'O' && b9 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b3 === 'X' && b6 === 'X' && b9 === 'X') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b3 === 'O' && b5 === 'O' && b7 === 'O') {
-    setTimeout(() => {
-      alert('Winner');
-    });
-  }
-
-  if (b3 === 'X' && b5 === 'X' && b7 === 'X') {
-    setTimeout(() => {
-      alert('Winner');
+      alert('Tie');
     });
   }
 }
 
-const sectionA = document.querySelector('.section-A');
-if (sectionA.children[0].children[0].textContent === 'Player 1') {
+function winCombinations(a, b, c) {
+  if (a === 'X' && b === 'X' && c === 'X') {
+    messageTurn.textContent = `You Won ${firstInput.value}!`;
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+  }
+
+  if (a === 'O' && b === 'O' && c === 'O') {
+    messageTurn.textContent = `You Won ${secondInput.value}!`;
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+  }
 }
 
 firstInput.addEventListener('input', (e) => {
+  e.preventDefault();
   firstPlayerName.textContent = e.target.value;
 });
 
 secondInput.addEventListener('input', (e) => {
+  e.preventDefault();
   secondPlayerName.textContent = e.target.value;
 });
