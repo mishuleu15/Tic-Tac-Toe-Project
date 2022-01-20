@@ -101,9 +101,10 @@ function playerChoice() {
     (b8 === 'O' || b8 === 'X') &&
     (b9 === 'O' || b9 === 'X')
   ) {
+    messageTurn.textContent = "It's a tie";
     setTimeout(() => {
-      alert('Tie');
-    });
+      location.reload();
+    }, 2000);
   }
 }
 
