@@ -90,6 +90,21 @@ function playerChoice() {
   winCombinations(b1, b5, b9);
   winCombinations(b3, b5, b7);
 
+  // If all fields selected but one is a win stop game
+  if (
+    (b1 === 'X' && b2 === 'X' && b3 === 'X') ||
+    (b4 === 'X' && b5 === 'X' && b6 === 'X') ||
+    (b7 === 'X' && b8 === 'X' && b9 === 'X') ||
+    (b1 === 'X' && b4 === 'X' && b7 === 'X') ||
+    (b2 === 'X' && b5 === 'X' && b8 === 'X') ||
+    (b3 === 'X' && b6 === 'X' && b9 === 'X') ||
+    (b1 === 'X' && b5 === 'X' && b9 === 'X') ||
+    (b3 === 'X' && b5 === 'X' && b7 === 'X')
+  ) {
+    return;
+  }
+
+  // Returns a tie
   if (
     (b1 === 'O' || b1 === 'X') &&
     (b2 === 'O' || b2 === 'X') &&
@@ -101,7 +116,7 @@ function playerChoice() {
     (b8 === 'O' || b8 === 'X') &&
     (b9 === 'O' || b9 === 'X')
   ) {
-    messageTurn.textContent = "It's a tie";
+    messageTurn.textContent = "It's a tie!";
     setTimeout(() => {
       location.reload();
     }, 2000);
@@ -114,6 +129,7 @@ function winCombinations(a, b, c) {
     setTimeout(() => {
       location.reload();
     }, 2000);
+    return;
   }
 
   if (a === 'O' && b === 'O' && c === 'O') {
